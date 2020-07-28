@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <style>
+        li{
+            background: #3D7878;
+            color: #B22222;
+            margin-bottom: 10px;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li class="li1">a</li>
+        <li class="li1">b</li>
+        <li class="li1">c</li>
+        <li class="li1">d</li>
+    </ul>
+    <input type="text" id="inp1"/>
+    <ul>
+        <li class="li2">A</li>
+        <li class="li2">B</li>
+        <li class="li2">C</li>
+        <li class="li2">D</li>
+    </ul>
+    <input type="text" id="inp2"/>
+
+<script>
+  var lis = document.getElementsByClassName("li1");
+
+  for (var i=0 ; i<lis.length;i++){
+        lis[i].onclick = function () {
+            document.getElementById('inp1').value = i;
+            document.getElementById('inp2').value = this.innerHTML
+        }
+  }
+  var list = document.getElementsByClassName("li2");
+  for (let i=0 ; i<lis.length;i++){
+      list[i].onclick = function () {
+          document.getElementById('inp1').value = i;
+          document.getElementById('inp2').value = this.innerHTML
+      }
+  }
+
+</script>
+</body>
+</html>

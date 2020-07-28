@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id='root'>
+
+</div>
+<script>
+    <!--无参数，一行代码-->
+    var fn1 = () => document.write('无参数，一行代码','<br>');
+    fn1();
+
+    //一个参数，一行代码
+    var fn2 = a => document.write('一个参数，一行代码',a,'<br>');
+    fn2(10);
+
+    //多参数，一行代码
+    var fn3 = (a,b,c) => document.write(a,' ',b+c,'<br>');
+    fn3(2,3,4);
+
+    //多参数，多行代码
+    var fn4 = (a,b,c) => {
+        document.write(a+b,c,' ');
+        document.write(a+b+c);
+    }
+    fn4(2,3,4)
+    new Vue({
+        el: '#root',
+        data: {},
+        methods: {}
+    })
+</script>
+</body>
+</html>

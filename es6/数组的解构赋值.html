@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id='root'>
+
+</div>
+<script>
+    let [red,b,lue,green] = [0,1,2,3]
+    document.write(red,b,lue,green)
+    function fun() {
+        return ['zhangsan',18,'man']
+    }
+    let [aa,bb,cc] = fun();
+    document.write(aa,'<br/>',bb,'<br/>',cc)
+    new Vue({
+        el: '#root',
+        data: {},
+        methods: {}
+    })
+</script>
+</body>
+</html>

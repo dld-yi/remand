@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id='root'>
+
+</div>
+<script>
+    'use strict'
+    var str = ['a','b','c','d'];
+    document.write(str,'<br>',...str);
+
+    var arr = 'hello';
+    document.write('<br>',arr,'<br>',[...arr])
+    new Vue({
+        el: '#root',
+        data: {},
+        methods: {}
+    })
+</script>
+</body>
+</html>

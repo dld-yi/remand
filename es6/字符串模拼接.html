@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id='root'>
+    <h1></h1>
+    <p></p>
+</div>
+<script>
+   'use strict'
+    var obj = {
+        name : 'zhang',
+        age : 108
+    }
+    //es6之前
+    // document.getElementById('root').innerHTML = '<h1>'+obj.name+'</h1><p>'+obj.age+'</p>';
+   //字符串拼接
+   document.getElementById('root').innerHTML = `<h1>${fn()+obj.name}</h1><p>${obj.name+'  '+obj.age}</p>`;
+   function fn() {
+       return "I'm is "
+   }
+    new Vue({
+        el: '#root',
+        data: {},
+        methods: {}
+    })
+</script>
+</body>
+</html>

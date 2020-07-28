@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id='root'>
+
+</div>
+<script>
+    'use strict';
+    var arr = [5,4,6,5,8,4,2,1,6];
+    let set = new Set(arr);
+    console.log(arr,set);
+    console.log(set.size);
+    console.log(set);
+    console.log(set.add('a'));
+    console.log(set);
+    console.log(set.delete(5));
+    console.log(set);
+    console.log(set.has('a'));
+    console.log(set);
+    console.log(set.clear());
+    console.log(set);
+
+    function b(x, y, a) {
+        alert(a);
+        console.log(arguments.length)
+    } b(1, 2, 3);
+
+    new Vue({
+        el: '#root',
+        data: {},
+        methods: {}
+    })
+</script>
+</body>
+</html>

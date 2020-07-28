@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id='root'>
+
+</div>
+<script>
+    var obj = {};
+    obj.id = 111;
+    obj.name = 'zhang';
+    obj.age = 18;
+    obj.tag = ['html','php','javascript'];
+    obj.study = function () {
+        return 'I like study'
+    }
+    obj.name = 'li';
+    let {id,name,age,tag,study} = obj;
+    document.write(id,',',name,',',age,',',tag,',',obj.study());
+    document.write('<br>');
+    ({id,name,age,tag,study} = obj);
+    document.write(name,'<br>');
+
+    document.write(name);
+    new Vue({
+        el: '#root',
+        data: {},
+        methods: {}
+    })
+</script>
+</body>
+</html>
