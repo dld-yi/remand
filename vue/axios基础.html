@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <script src="axios.js"></script>
+</head>
+<body>
+<div id="root">
+    <p v-for="site in info">{{site.name}}</p>
+</div>
+<script>
+    const app = new Vue({
+        el: '#root',
+        data()  {
+            return {
+                info: null
+            }
+        },
+        mounted () {
+            axios
+            .get('json_demo.json')
+            .then(response => (this.info = response.data.sites))
+            .catch(function (err) {
+                console.log(err)
+            })
+        }
+    })
+</script>
+</body>
+</html>

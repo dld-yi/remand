@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+</head>
+<body>
+<div id="root">
+    <p id="pop">{{name}}</p>
+    <button @click="get()">点击</button>
+</div>
+<script>
+    const app = new Vue({
+        el: '#root',
+        data: {
+            name: ''
+        },
+        methods: {
+            get: function () {
+                this.$http.get('ajaxtest.txt').then(function (res) {
+                    this.name=res.body
+                },function () {
+                    console.log('请求失败')
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

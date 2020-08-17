@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <input type="text" v-model="type">{{type}}
+    <p v-if="type === 'A'">this is A</p>
+    <p v-else-if="type === 'B'">this is B</p>
+    <p v-else-if="type === 'C'">this is C</p>
+    <p v-else>NO A/B/C</p>
+</div>
+<script>
+    const app = new Vue({
+        el: '#root',
+        data: {
+            type: 'A'
+        }
+    })
+</script>
+</body>
+</html>

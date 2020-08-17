@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: #021f2b;
+            float: left;
+            border-right: 1px solid red;
+        }
+        #root{
+            width: 404px;
+            border: 0px;
+            clear: both;
+        }
+        .divClass1{
+            background: blue;
+        }
+        .divClass2{
+            background: crimson;
+        }
+        .divClass3{
+            background: darkgreen;
+        }
+        .divClass4{
+            background: firebrick;
+        }
+        .divClass5{
+            background: steelblue;
+        }
+        .divClass6{
+            background: aqua;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    <div :class="{'divClass1':divClass1}" @click="divClick1"></div>
+    <div :class="{'divClass2':divClass2,'divClass3':divClass3}" @click="divClick2"></div>
+    <div :class="activeClass" @click="divClick3"></div>
+    <div :class="[isActive?activeClass5:activeClass6]" @click="divClick4"></div>
+</div>
+<script>
+    const app = new Vue({
+        el: '#root',
+        data: {
+            divClass1: true,
+            divClass2:true,
+            divClass3:false,
+            activeClass: {
+                divClass4: true
+            },
+            isActive: false,
+            activeClass5: 'divClass5',
+            activeClass6: 'divClass6'
+        },
+        methods: {
+            divClick1: function () {
+                this.divClass1 = !this.divClass1;
+            },
+            divClick2: function () {
+                    this.divClass2 = !this.divClass2;
+                    this.divClass3 = !this.divClass3;
+            },
+            divClick3: function () {
+                    this.activeClass.divClass4 = !this.activeClass.divClass4;
+            },
+            divClick4: function () {
+                    this.isActive = !this.isActive;
+            }
+        }
+    })
+</script>
+</body>
+</html>

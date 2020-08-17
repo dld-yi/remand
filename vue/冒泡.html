@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <style>
+        #div0,#div2{
+            width: 100px;
+            height: 100px;
+            background: aqua;
+        }
+        #div1,#div3{
+            width: 50px;
+            height: 50px;
+            background: blue;
+            position: relative;
+            left: 58px;
+            top: 58px;
+        }
+    </style>
+</head>
+<body>
+<div id="div0" @click="div2Click">
+    <div id="div1" @click.stop="div1Click"></div>
+</div>
+<hr>
+<div id="div2" @click.once="div2Click">
+    <div id="div3" @click.once="div1Click"></div>
+</div>
+<script>
+    const app = new Vue({
+        el: '#div0',
+        methods: {
+            div1Click: function () {
+                alert('blue');
+            },
+            div2Click: function () {
+                alert('aqua');
+            }
+        }
+    });
+    const apps = new Vue({
+        el: '#div2',
+        methods: {
+            div1Click: function () {
+                alert('blue');
+            },
+            div2Click: function () {
+                alert('aqua');
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <input type="checkbox" id="html" v-model="names" value="aaa"><label for="html">HTML</label>
+    <input type="checkbox" id="css" v-model="names" value="bbb"><label for="css">CSS</label>
+    <input type="checkbox" id="javascript" v-model="names" value="ccc"><label for="javascript">javaScript</label>
+    <p>{{ names }}</p>
+    <p v-for="i,j in names">[{{j}}]{{i}}</p>
+    <select name="sole" id="sole" v-model="selected">
+        <option value="">选择一个网站</option>
+        <option value="www.jd.com">京东</option>
+        <option value="www.taobao.com">淘宝</option>
+        <option value="www.baidu.com">百度</option>
+    </select>
+    <p>选择的网站是：{{selected}}</p>
+    <hr>
+</div>
+<hr>
+<div id="roota">
+    <input type="radio" id="htmla" v-model="names" value="aaad"><label for="htmla">HTML</label>
+    <input type="radio" id="cssa" v-model="names" value="bbbd"><label for="cssa">CSS</label>
+    <input type="radio" id="javascripta" v-model="names" value="cccd"><label for="javascripta">javaScript</label>
+    <p>{{ names }}</p>
+    <p v-for="i,j in names">[{{j}}]{{i}}</p>
+</div>
+<script>
+    const app = new Vue({
+        el: '#root',
+        data: {
+            names: [],
+            selected: ''
+        }
+    })
+    const appa = new Vue({
+        el: '#roota',
+        data: {
+            names: [],
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <script src="router.js"></script>
+</head>
+<body>
+<div id="root">
+    <router-link to="/foo">i'm foo page</router-link>
+    <router-link to="/bar">i'm bar page</router-link>
+    <router-view></router-view>
+</div>
+<script>
+<!--    1.定义路由-->
+const foo = {
+    template: '<h1>foo page</h1>'
+}
+const bar = {
+    template: '<h1>bar page</h1>'
+}
+    //2.定义路由
+const routers = [
+    {path: '/foo',component: foo},
+    {path: '/bar',component: bar}
+]
+    //3.创建router实例，进行routes配置
+const router = new VueRouter({
+    routers
+})
+    const app = new Vue({
+        routers
+    }).$mount('#root')
+</script>
+</body>
+</html>

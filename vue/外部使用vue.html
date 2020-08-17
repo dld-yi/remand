@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <input type="text" v-model="name"><br>
+    <input type="text" v-model="adress"><br>
+    <p id="list-10" :style="color">{{lastName}}</p>
+    <p>{{use?1:2}}</p>
+    <button @click="chage">change</button>
+</div>
+<script>
+    const app = new Vue({
+        el: '#root',
+        data: {
+            name: 'siasun',
+            adress: 'weiqiRoad',
+            use: true,
+            id: '10',
+            color: {
+                backgroundColor: 'red'
+            }
+        },
+        computed: {
+            fullName: function () {
+                return this.name+' '+this.adress
+            },
+            lastName: function () {
+                return this.fullName+' 2000'
+            }
+        },
+        methods: {
+            chage: function () {
+                this.name = '新松'
+                document.getElementsByTagName('button')[0].innerText = '点击'
+                this.color.backgroundColor = 'blue'
+            }
+        }
+    })
+    app.$data.adress = '纬七路'
+</script>
+</body>
+</html>

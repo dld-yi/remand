@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>axios</title>
+    <script src="vue.js"></script>
+    <script src="axios.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="root">
+    <div>
+        <p>名称：{{info.name}}</p>
+        <p>地址：<a :href="info.url">{{info.url}}</a></p>
+        <p v-for="link in info.links">{{link.name}}：<a :href="link.url">{{link.url}}</a></p>
+    </div>
+</div>
+<script>
+    const app = new Vue({
+        el: '#root',
+        data(){
+            return{
+                info: {
+                    name: "",
+                    url: ""
+                }
+            }
+        },
+        mounted() {
+            axios
+                .get("data.json")
+                .then(res => this.info = res.data)
+        }
+    })
+</script>
+</body>
+</html>

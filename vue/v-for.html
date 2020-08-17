@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <p v-for="list in lists">{{list.id}}  {{list.name}}</p>
+    <ul>
+        <tempalte v-for="i,j,k in object">
+            <li>{{k}}.{{j}}:{{i}}</li>
+            <li>----------</li>
+        </tempalte>
+    </ul>
+    <ul>
+        <li v-for="i,j,k in pops">{{j}}:{{i}}</li>
+    </ul>
+</div>
+<script>
+    const app = new Vue({
+        el: '#root',
+        data: {
+            lists: [
+                {id: 0,name: 'A'},
+                {id: 1,name: 'B'},
+                {id: 2,name: 'C'}
+            ],
+            object: {
+                name: 'siasun',
+                adress: 'weiqi',
+                calss: 'news'
+            },
+            pops: ['aa','cc','bb']
+        }
+    })
+</script>
+</body>
+</html>

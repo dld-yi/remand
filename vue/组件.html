@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <input type="text" v-model="text">
+    <newtemplate :text="text"></newtemplate>{{text}}
+    <newtem1></newtem1>
+</div>
+<div id="div">
+    <newtemplate></newtemplate>
+    <newtem1></newtem1>
+</div>
+<script>
+<!--    定义全局组件-->
+    Vue.component('newtemplate',{
+        props: {
+            text: String
+        },
+        template: '<h1> {{text}} </h1>'
+    })
+//局部组件
+let newtem = {
+    template: '<h2>局部组件</h2>'
+}
+//创建根实例
+    const app = new Vue({
+        el: '#root',
+        data: {
+            text: 'www'
+        },
+        components: {
+            'newtem1': newtem
+        }
+    })
+    new Vue({
+        el: '#div'
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <input type="text" v-model="name">
+    <br>
+    <input id="inp1" type="text" @blur="change">{{name}}
+    <br>
+    <input id="inp2" type="text" @input="chsge">
+    <p id="pop">{{age}}</p>
+</div>
+<script>
+    const app = new Vue({
+        el: '#root',
+        data: {
+            name: 0,
+            age: 0
+        },
+        methods: {
+            change: function () {
+                this.name = document.getElementById("inp1").value;
+            },
+            chsge: function () {
+                if (this.name === document.getElementById("inp2").value) {
+                    document.getElementById("pop").innerHTML = '输入正确'
+                }else{
+                    document.getElementById("pop").innerHTML = '两次输入不一致'
+                }
+            }
+        },
+        watch: {
+            name: function (val) {
+                this.name = val;
+                this.age = this.name*10;
+            }
+        }
+    })
+</script>
+</body>
+</html>

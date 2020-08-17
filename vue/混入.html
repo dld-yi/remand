@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script>
+    const app = new Vue({
+        el: '#root',
+        data: {}
+    })
+    const newname = {
+        created: function () {
+            this.startname()
+        },
+        methods: {
+            startname: function () {
+                document.write('混入')
+            }
+        }
+    }
+    const Component = Vue.extend({
+        name: [newname]
+    })
+    const component = new Component()
+</script>
+</body>
+</html>

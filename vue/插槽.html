@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<!-- 插槽，实际上时组件间的组合使用（组件内调用组件） -->
+		<div id="root">
+			<todo>
+				<todo-title slot="todo-title" :title="title"></todo-title>
+				<todo-content slot="todo-content"
+				 v-for="content,index in contents" 
+				 :content="content"
+				 :index="index"
+				 @delete="delede"></todo-content>
+			</todo>
+		</div>
+		<script>
+			Vue.component('todo',{
+				template: '<div><slot name=\'todo-title\'></slot><slot name=\'todo-content\'></slot></div>'
+			});
+			Vue.component('todo-title',{
+				props:['title'],
+				template: '<h2>{{title}}</h2>'
+			});
+			Vue.component('todo-content',{
+				props:['content',"index"],
+				template: '<p>{{content}}<button @click="remove">删除</button></p>',
+				methods:{
+					remove: function(){
+						this.$emit("delete",this.index)
+					}
+				}
+			})
+			const app = new Vue({
+				el: '#root',
+				data:{
+					title: '标题',
+					contents: ["Google","Baidu","Sougou"]
+				},
+				methods:{
+					delede: function(index){
+						this.contents.splice(index,1)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
